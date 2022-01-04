@@ -14,8 +14,8 @@ While practices across institutions vary, most would follow a general framework 
 
 ![picture alt](./images/general_framework.png)
 
-
+<br></br>
 References:
-- M. Lopez de Prado. Advances in Financial Machine Learning. John Wiley & Sons, Inc.
+- M. López de Prado. Advances in Financial Machine Learning. John Wiley & Sons, Inc.
 - K. Rishi Narang. Inside the Black Box. John Wiley & Sons, Inc.
 - QuantConnect:  https://www.quantconnect.com/docs/algorithm-framework/overview
