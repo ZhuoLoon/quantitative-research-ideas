@@ -12,10 +12,10 @@ def resample_by_volume_clock(time_sampled_data, security, start_date,
     Args:
         time_sampled_data (pd.DataFrame
             {'time' (datetime.datetime): {'open': List(float),
-                                        'high': List(float),
-                                        'low': List(float),
-                                        'close': List(float),
-                                        'volume': List(float)}}): data sampled by time
+                                          'high': List(float),
+                                          'low': List(float),
+                                          'close': List(float),
+                                          'volume': List(float)}}): data sampled by time
 
         security (str): security symbol
         start_date (str): yfinance start date
@@ -37,26 +37,26 @@ def resample_by_volume_clock(time_sampled_data, security, start_date,
     historical_data = yf.download(tickers=security, start=start_date, end=end_date)
 
     # Calculate the sampling size
-    sampling_size = __calculate_sampling_size(historical_data, trading_intervals, method)
+    sampling_size = _calculate_sampling_size(historical_data, trading_intervals, method)
 
     # Resampling the data
-    resampled_data = __resample_by_sampling_size(time_sampled_data, sampling_size, method)
+    resampled_data = _resample_by_sampling_size(time_sampled_data, sampling_size, method)
 
     return resampled_data
 
 
-def __calculate_sampling_size(historical_data, trading_intervals, method):
+def _calculate_sampling_size(historical_data, trading_intervals, method):
     """
     Calculates sampling size to use for each stochastic bar.
 
     Args:
         historical_data (pd.DataFrame
             {'Date' (datetime.datetime): {'Open': List(float),
-                                        'High': List(float),
-                                        'Low': List(float),
-                                        'Close': List(float),
-                                        'Adj Close': List(float),
-                                        'Volume': List(float)}})
+                                          'High': List(float),
+                                          'Low': List(float),
+                                          'Close': List(float),
+                                          'Adj Close': List(float),
+                                          'Volume': List(float)}})
         trading_intervals (List(tuple(datetime.time(), datetime.time()))
         method (str)
 
@@ -65,7 +65,7 @@ def __calculate_sampling_size(historical_data, trading_intervals, method):
     """
     # calculate total trading minutes in the historical period
     total_days = historical_data.shape[0]
-    total_minutes = __calculate_minutes_in_historical_period(trading_intervals, total_days)
+    total_minutes = _calculate_minutes_in_historical_period(trading_intervals, total_days)
 
     if method.upper() == 'VOLUME':
         total_volume = historical_data.Volume.sum()
@@ -80,7 +80,7 @@ def __calculate_sampling_size(historical_data, trading_intervals, method):
     return sampling_size
 
 
-def __calculate_minutes_in_historical_period(trading_intervals, total_days):
+def _calculate_minutes_in_historical_period(trading_intervals, total_days):
     """
     Helper function to calculate total number of trading minutes in the period used
     for downloading historical data.
@@ -108,7 +108,7 @@ def __calculate_minutes_in_historical_period(trading_intervals, total_days):
     return total_minutes
 
 
-def __resample_by_sampling_size(time_sampled_data, sampling_size, method):
+def _resample_by_sampling_size(time_sampled_data, sampling_size, method):
     """
     Resamples time sampled data by volume clock, based on the calculated pre-defined
     amount to sample each bar, and the method provided.
@@ -155,5 +155,3 @@ def __resample_by_sampling_size(time_sampled_data, sampling_size, method):
 
     resampled_data = pd.DataFrame(resampled_bars)
     return resampled_data
-
-

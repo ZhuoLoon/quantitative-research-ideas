@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Ipynb checkpoints
+*-checkpoint.ipynb
+
+# Pycharm files
+.idea
+*__pycache__
