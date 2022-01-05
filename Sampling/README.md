@@ -32,8 +32,7 @@ surrogate for information. The approach of forming bars as a subordinated proces
 is referred to as the __volume clock__.
 
 An alternative approach to the __volume clock__ is to use __information-driven bars__, which aims to sample bars
-based on imbalance in buy and sell activities. Such an approach is beyond the scope of this project.
-
+based on imbalance in buy and sell activities.
 
 <br></br>
 References:

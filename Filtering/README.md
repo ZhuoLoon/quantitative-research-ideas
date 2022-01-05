@@ -6,7 +6,7 @@ the most liquid securities in the universe,
 to minimise execution risk (transaction costs,
  adverse selection, inventory risk etc.)
 
-As explained by Larry Harris, liquidity has multiple
+According to Larry Harris, liquidity has multiple
 dimensions:
 1. Immediacy - How quickly trades can be executed
 2. Width - Transaction cost of making a trade
